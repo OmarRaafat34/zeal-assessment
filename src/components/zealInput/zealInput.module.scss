@@ -1,0 +1,33 @@
+.input_container {
+  width: 100%;
+}
+
+.show {
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
+}
+
+.textarea {
+  height: initial;
+  padding: 1rem;
+}
+
+.textarea::-webkit-resizer {
+  display: none;
+}
+
+.textarea-icon {
+  position: absolute;
+  right: 9px;
+  top: 60px;
+}
+
+.input-label {
+  display: flex;
+  gap: 0.375rem;
+  p {
+    color: grey;
+  }
+}
