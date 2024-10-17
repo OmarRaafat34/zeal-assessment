@@ -1,0 +1,85 @@
+@import "../../styles/variables";
+@mixin button-styles(
+  $gradient-start,
+  $gradient-middle,
+  $gradient-end,
+  $border-color: #89a1b8,
+  $padding: 15px 30px,
+  $font-size: 18px
+) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $padding;
+  font-size: $font-size;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient($gradient-start, $gradient-middle, $gradient-end);
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(
+      lighten($gradient-start, 10%),
+      lighten($gradient-middle, 10%),
+      lighten($gradient-end, 10%)
+    );
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.zeal_btn {
+  @include button-styles(#335169, #020a13, #335169, #89a1b8);
+}
+
+.zeal_btnClicked {
+  @include button-styles(#ffcc00, #ffb300, #ff9900);
+}
+
+.zeal_btnCorrect {
+  @include button-styles(#28a745, #218838, #1e7e34);
+}
+
+.zeal_btnQuestion {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(#335169, #020a13, #335169);
+  border-radius: 10px;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 42px;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(#335169, #020a13, #335169);
+  }
+
+  &::before {
+    right: -35px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+
+  &::after {
+    left: -35px;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  }
+}

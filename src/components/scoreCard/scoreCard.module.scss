@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.score_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2rem;
+  width: 100%;
+  &_time {
+    background: linear-gradient(#335169, #020a13, #335169);
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b1b9d3;
+    border-radius: 1rem;
+    padding: 1rem;
+    p {
+      margin-bottom: 1rem;
+      color: $white;
+      font-size: 18px;
+    }
+  }
+}

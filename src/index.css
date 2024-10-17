@@ -10,7 +10,20 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #4a41a1;
+  /* background-color: #00008b; */
+  /* background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(circle at bottom left, #350066, transparent 60%),
+    radial-gradient(circle at top right, #000060, transparent 70%); */
+  /* background-image: url("./assets/images/logo.png"); */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #040d15; /* Fallback dark blue */
+  height: 100vh;
 }
 
 code {
