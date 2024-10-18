@@ -8,6 +8,7 @@ import ZealLoader from "../zealLoader/zealLoader";
 import { getData, removeData, storeData } from "../../config/storage";
 import DifficultyButtons from "../difficultyButtons/difficultyButtons";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ScoreCard = (props: ScoreCardProps) => {
   const [newGame, setNewGame] = useState(false);
@@ -48,13 +49,17 @@ const ScoreCard = (props: ScoreCardProps) => {
   };
 
   const startNewGameHandler = () => {
-    setLoading(true);
-    storeData("difficulty", difficulty);
-    removeData("categoriesSelected");
-    removeData("category");
-    navigate("/categories");
-    const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
-    sound.play();
+    if (difficulty === "") {
+      toast("Please select difficulty!");
+    } else {
+      setLoading(true);
+      storeData("difficulty", difficulty);
+      removeData("categoriesSelected");
+      removeData("category");
+      navigate("/categories");
+      const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
+      sound.play();
+    }
   };
   return (
     <div className="mt-8 flex flex-col items-center">
