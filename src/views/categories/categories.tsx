@@ -14,7 +14,9 @@ const Categories = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (categoriesSelected?.length >= 4) {
+    if (categoriesSelected?.length >= 3) {
+      const sound = new Audio("/assets/soundtracks/Congratulations.mp3");
+      sound.play();
       setFinishedGamed(true);
       toast("Gongratulations you finished the game!");
       setTimeout(() => {

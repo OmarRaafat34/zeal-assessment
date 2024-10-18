@@ -33,6 +33,8 @@ const Timer = (props: TimerProps) => {
     const interval = setInterval(() => {
       setTime((prevTime) => {
         if (prevTime <= 0) {
+          const sound = new Audio("/assets/soundtracks/TimesUp.mp3");
+          sound.play();
           clearInterval(interval);
           props.nextQuestion();
           return 0;

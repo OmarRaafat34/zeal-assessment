@@ -53,6 +53,8 @@ const ScoreCard = (props: ScoreCardProps) => {
     removeData("categoriesSelected");
     removeData("category");
     navigate("/categories");
+    const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
+    sound.play();
   };
   return (
     <div className="mt-8 flex flex-col items-center">

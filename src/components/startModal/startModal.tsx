@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ZealButton from "../zealButton/zealButton";
 import ZealInput from "../zealInput/zealInput";
 import classes from "./startModal.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { storeData } from "../../config/storage";
 import { toast } from "react-toastify";
 import { requestNewToken } from "../../config/apis";
@@ -18,6 +18,9 @@ const StartModal = () => {
     if (name === "" || difficulty === "") {
       toast("You must fill name and select difficulty before we start!");
     } else {
+      toast("Turn up the volume for better experience!");
+      const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
+      sound.play();
       await requestNewToken();
       storeData("name", name);
       storeData("difficulty", difficulty);

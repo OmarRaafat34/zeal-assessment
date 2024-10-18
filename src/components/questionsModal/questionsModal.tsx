@@ -33,6 +33,8 @@ const QuestionsModal = (props: QuestionsModalProps) => {
         } else {
           updatedCorrect = correctAnswers + 1;
         }
+        const sound = new Audio("/assets/soundtracks/Win.mp3");
+        sound.play();
         storeData("correctAnswers", updatedCorrect);
       } else {
         if (!wrongAnswers) {
@@ -40,6 +42,8 @@ const QuestionsModal = (props: QuestionsModalProps) => {
         } else {
           updatedWrong = wrongAnswers + 1;
         }
+        const sound = new Audio("/assets/soundtracks/Lose.mp3");
+        sound.play();
         storeData("wrongAnswers", updatedWrong);
       }
       setRevealAnswer(true);

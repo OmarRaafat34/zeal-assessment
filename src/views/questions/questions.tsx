@@ -16,7 +16,7 @@ const Questions = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       const fetchedQuestions = await getQuestions(
-        4,
+        3,
         category,
         difficulty,
         token

@@ -21,14 +21,8 @@ const CategoriesModal = (props: CategoriesModalProps) => {
   };
 
   const startGameHandler = (value?: number) => {
-    if (categorySelected === 0) {
-      toast("Please select a category");
-    } else {
-      if (categorySelected !== 1) {
-        storeData("category", categorySelected);
-      }
-
-      let updatedCategories;
+    let updatedCategories;
+    if (value == 1) {
       if (!categoriesSelectedBefore) {
         updatedCategories = [{ id: categorySelected }];
       } else {
@@ -38,6 +32,26 @@ const CategoriesModal = (props: CategoriesModalProps) => {
         ];
       }
 
+      storeData("categoriesSelected", updatedCategories);
+      navigate("/questions");
+      const sound = new Audio("/assets/soundtracks/QuestionsStart.mp3");
+      sound.play();
+    } else if (categorySelected === 0) {
+      toast("Please select a category");
+    } else {
+      if (categorySelected !== 1) {
+        storeData("category", categorySelected);
+      }
+      if (!categoriesSelectedBefore) {
+        updatedCategories = [{ id: categorySelected }];
+      } else {
+        updatedCategories = [
+          ...categoriesSelectedBefore,
+          { id: categorySelected },
+        ];
+      }
+      const sound = new Audio("/assets/soundtracks/QuestionsStart.mp3");
+      sound.play();
       storeData("categoriesSelected", updatedCategories);
       navigate("/questions");
     }
