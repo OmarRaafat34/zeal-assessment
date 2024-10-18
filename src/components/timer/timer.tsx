@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { TimerProps } from "./types";
 import { getData, storeData } from "../../config/storage";
-import { useNavigate } from "react-router-dom";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const Timer = (props: TimerProps) => {
@@ -9,7 +8,6 @@ const Timer = (props: TimerProps) => {
   const [initialTime, setInitialTime] = useState<number>(0);
   const [previousTimeConsumed, setPreviousTimeConsumed] = useState<number>(0);
   const [key, setKey] = useState<number>(0);
-  const navigate = useNavigate();
 
   const getInitialTime = () => {
     switch (props.difficulty) {
@@ -49,6 +47,7 @@ const Timer = (props: TimerProps) => {
       const newTotalTime = previousTimeConsumed + timeConsumed;
       storeData("timeConsumed", newTotalTime);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.difficulty, props.resetTimer]);
 
   useEffect(() => {

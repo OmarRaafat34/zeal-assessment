@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ZealButton from "../zealButton/zealButton";
 import classes from "./categoriesModal.module.scss";
 import { CategoriesModalProps } from "./types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getData, storeData } from "../../config/storage";
 import { CategoriesSelectedBefore } from "../../config/types";
 import { toast } from "react-toastify";
@@ -22,7 +22,7 @@ const CategoriesModal = (props: CategoriesModalProps) => {
 
   const startGameHandler = (value?: number) => {
     let updatedCategories;
-    if (value == 1) {
+    if (value === 1) {
       if (!categoriesSelectedBefore) {
         updatedCategories = [{ id: categorySelected }];
       } else {

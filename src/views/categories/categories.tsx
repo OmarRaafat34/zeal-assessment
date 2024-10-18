@@ -23,10 +23,11 @@ const Categories = () => {
         navigate("/");
       }, 4000);
     }
-  }, []);
+  }, [categoriesSelected?.length, navigate]);
 
   useEffect(() => {
     getCategoriesHandler();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getCategoriesHandler = async () => {

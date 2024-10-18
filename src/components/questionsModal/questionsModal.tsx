@@ -4,7 +4,6 @@ import { QuestionsModalProps } from "./types";
 import Timer from "../timer/timer";
 import { addAnswerRandomly, replaceQuotes } from "../../config/constant";
 import { useState } from "react";
-import ZealInput from "../zealInput/zealInput";
 import { toast } from "react-toastify";
 import { getData, storeData } from "../../config/storage";
 

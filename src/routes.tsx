@@ -40,6 +40,7 @@ const AppRoutes = () => {
         window.removeEventListener(event, resetInactivityTimer)
       );
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, navigate]);
 
   return (

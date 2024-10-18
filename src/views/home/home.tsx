@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ScoreCard from "../../components/scoreCard/scoreCard";
 import StartModal from "../../components/startModal/startModal";
-import { clearData, getData, removeData } from "../../config/storage";
+import { clearData, getData } from "../../config/storage";
 const Home = () => {
   const token = getData("token");
   const playerName = getData("name");
@@ -14,7 +14,7 @@ const Home = () => {
     if (!token) {
       clearData();
     }
-  }, []);
+  }, [token]);
   return (
     <div>
       {!token ? (

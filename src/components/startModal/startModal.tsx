@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ZealButton from "../zealButton/zealButton";
 import ZealInput from "../zealInput/zealInput";
 import classes from "./startModal.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { storeData } from "../../config/storage";
 import { toast } from "react-toastify";
 import { requestNewToken } from "../../config/apis";

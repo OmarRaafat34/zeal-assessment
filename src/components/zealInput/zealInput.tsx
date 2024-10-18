@@ -3,7 +3,7 @@ import type { ZealInputProps } from "./types";
 import classes from "./zealInput.module.scss";
 
 export default function ZealInput(props: ZealInputProps) {
-  const [fieldBulr, setFieldBlur] = useState(false);
+  const [, setFieldBlur] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const handleOnBulr = () => {
