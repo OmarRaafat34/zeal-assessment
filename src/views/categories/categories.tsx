@@ -6,6 +6,7 @@ import { getCategories } from "../../config/apis";
 import { useNavigate } from "react-router-dom";
 import ZealInput from "../../components/zealInput/zealInput";
 import { toast } from "react-toastify";
+import { CongratulationsSound } from "../../config/constant";
 const Categories = () => {
   const [categories, setCategories] = useState<CategoriesType[]>([]);
   const [finishedGame, setFinishedGamed] = useState(false);
@@ -15,8 +16,7 @@ const Categories = () => {
 
   useEffect(() => {
     if (categoriesSelected?.length >= 3) {
-      const sound = new Audio("/assets/soundtracks/Congratulations.mp3");
-      sound.play();
+      CongratulationsSound.play();
       setFinishedGamed(true);
       toast("Gongratulations you finished the game!");
       setTimeout(() => {

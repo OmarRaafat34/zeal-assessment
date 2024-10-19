@@ -9,6 +9,10 @@
   border-radius: 10px;
   text-align: center;
 
+  @media (max-width: 599px) {
+    width: 100% !important;
+  }
+
   &::before,
   &::after {
     content: "";

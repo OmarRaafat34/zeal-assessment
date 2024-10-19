@@ -1,5 +1,6 @@
 import ZealButton from "../zealButton/zealButton";
 import { DifficultyButtonsProps } from "./types";
+import classes from "./difficultybuttons.module.scss";
 
 const DifficultyButtons = (props: DifficultyButtonsProps) => {
   const difficultyHandler = (difficulty: string) => {
@@ -16,7 +17,7 @@ const DifficultyButtons = (props: DifficultyButtonsProps) => {
     }
   };
   return (
-    <div className="flex justify-around gap-16 my-8">
+    <div className={classes.difficulty}>
       <ZealButton
         clicked={props.difficulty === "easy"}
         click={() => difficultyHandler("easy")}

@@ -25,12 +25,20 @@
       &_single {
         margin: 1rem 0;
       }
+      @media (max-width: 430px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
     &_answer {
       margin: 2rem;
       display: flex;
       justify-content: center;
       gap: 10rem;
+      @media (max-width: 430px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
     }
   }
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TimerProps } from "./types";
 import { getData, storeData } from "../../config/storage";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { TimesUpSound } from "../../config/constant";
 
 const Timer = (props: TimerProps) => {
   const [time, setTime] = useState<number>(0);
@@ -31,8 +32,7 @@ const Timer = (props: TimerProps) => {
     const interval = setInterval(() => {
       setTime((prevTime) => {
         if (prevTime <= 0) {
-          const sound = new Audio("/assets/soundtracks/TimesUp.mp3");
-          sound.play();
+          TimesUpSound.play();
           clearInterval(interval);
           props.nextQuestion();
           return 0;

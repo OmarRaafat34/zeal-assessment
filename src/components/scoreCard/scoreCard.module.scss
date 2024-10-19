@@ -7,6 +7,9 @@
   flex-wrap: wrap;
   margin: 2rem;
   width: 100%;
+  @media (max-width: 599px) {
+    flex-direction: column;
+  }
   &_time {
     background: linear-gradient(#335169, #020a13, #335169);
     height: 10rem;

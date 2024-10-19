@@ -7,6 +7,7 @@ import { getData, storeData } from "../../config/storage";
 import { CategoriesSelectedBefore } from "../../config/types";
 import { toast } from "react-toastify";
 import ZealLoader from "../zealLoader/zealLoader";
+import { LetsPlaySound, QuestionsStartSound } from "../../config/constant";
 
 const CategoriesModal = (props: CategoriesModalProps) => {
   const navigate = useNavigate();
@@ -14,31 +15,11 @@ const CategoriesModal = (props: CategoriesModalProps) => {
   const [categorySelected, setCategorySelected] = useState(0);
   const categoriesSelectedBefore = getData("categoriesSelected");
 
-  const randomCategoryHandler = () => {
-    setCategorySelected(1);
-
-    startGameHandler(1);
-  };
-
-  const startGameHandler = (value?: number) => {
-    let updatedCategories;
-    if (value === 1) {
-      if (!categoriesSelectedBefore) {
-        updatedCategories = [{ id: categorySelected }];
-      } else {
-        updatedCategories = [
-          ...categoriesSelectedBefore,
-          { id: categorySelected },
-        ];
-      }
-
-      storeData("categoriesSelected", updatedCategories);
-      navigate("/questions");
-      const sound = new Audio("/assets/soundtracks/QuestionsStart.mp3");
-      sound.play();
-    } else if (categorySelected === 0) {
+  const startGameHandler = () => {
+    if (categorySelected === 0) {
       toast("Please select a category");
     } else {
+      let updatedCategories;
       if (categorySelected !== 1) {
         storeData("category", categorySelected);
       }
@@ -50,8 +31,8 @@ const CategoriesModal = (props: CategoriesModalProps) => {
           { id: categorySelected },
         ];
       }
-      const sound = new Audio("/assets/soundtracks/QuestionsStart.mp3");
-      sound.play();
+      LetsPlaySound.pause();
+      QuestionsStartSound.play();
       storeData("categoriesSelected", updatedCategories);
       navigate("/questions");
     }
@@ -87,10 +68,14 @@ const CategoriesModal = (props: CategoriesModalProps) => {
         )}
       </div>
       <div className={classes.container_modal_action}>
-        <ZealButton click={startGameHandler}>START</ZealButton>
-        <ZealButton key={1} click={randomCategoryHandler}>
-          START RANDOM
+        <ZealButton
+          key={1}
+          click={() => setCategorySelected(1)}
+          clicked={categorySelected === 1}
+        >
+          RANDOM
         </ZealButton>
+        <ZealButton click={startGameHandler}>START</ZealButton>
       </div>
     </>
   );

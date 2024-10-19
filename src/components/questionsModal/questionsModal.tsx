@@ -2,7 +2,12 @@ import ZealButton from "../zealButton/zealButton";
 import classes from "./questionsModal.module.scss";
 import { QuestionsModalProps } from "./types";
 import Timer from "../timer/timer";
-import { addAnswerRandomly, replaceQuotes } from "../../config/constant";
+import {
+  addAnswerRandomly,
+  LoseSound,
+  replaceQuotes,
+  WinSound,
+} from "../../config/constant";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { getData, storeData } from "../../config/storage";
@@ -32,8 +37,8 @@ const QuestionsModal = (props: QuestionsModalProps) => {
         } else {
           updatedCorrect = correctAnswers + 1;
         }
-        const sound = new Audio("/assets/soundtracks/Win.mp3");
-        sound.play();
+
+        WinSound.play();
         storeData("correctAnswers", updatedCorrect);
       } else {
         if (!wrongAnswers) {
@@ -41,8 +46,7 @@ const QuestionsModal = (props: QuestionsModalProps) => {
         } else {
           updatedWrong = wrongAnswers + 1;
         }
-        const sound = new Audio("/assets/soundtracks/Lose.mp3");
-        sound.play();
+        LoseSound.play();
         storeData("wrongAnswers", updatedWrong);
       }
       setRevealAnswer(true);

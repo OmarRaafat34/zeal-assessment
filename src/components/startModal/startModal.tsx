@@ -7,6 +7,7 @@ import { storeData } from "../../config/storage";
 import { toast } from "react-toastify";
 import { requestNewToken } from "../../config/apis";
 import DifficultyButtons from "../difficultyButtons/difficultyButtons";
+import { LetsPlaySound } from "../../config/constant";
 
 const StartModal = () => {
   const navigate = useNavigate();
@@ -19,8 +20,7 @@ const StartModal = () => {
       toast("You must fill name and select difficulty before we start!");
     } else {
       toast("Turn up the volume for better experience!");
-      const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
-      sound.play();
+      LetsPlaySound.play();
       await requestNewToken();
       storeData("name", name);
       storeData("difficulty", difficulty);

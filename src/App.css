@@ -9,6 +9,11 @@
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 1024px) {
+  .app {
+    padding: 2rem;
+  }
+}
 .background {
   background-image: url("./assets/images/logo.png");
   background-size: contain;

@@ -9,6 +9,7 @@ import { getData, removeData, storeData } from "../../config/storage";
 import DifficultyButtons from "../difficultyButtons/difficultyButtons";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { CongratulationsSound, LetsPlaySound } from "../../config/constant";
 
 const ScoreCard = (props: ScoreCardProps) => {
   const [newGame, setNewGame] = useState(false);
@@ -57,8 +58,8 @@ const ScoreCard = (props: ScoreCardProps) => {
       removeData("categoriesSelected");
       removeData("category");
       navigate("/categories");
-      const sound = new Audio("/assets/soundtracks/LetsPlay.mp3");
-      sound.play();
+      CongratulationsSound.pause();
+      LetsPlaySound.play();
     }
   };
   return (
